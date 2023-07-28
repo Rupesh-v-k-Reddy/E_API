@@ -1,16 +1,12 @@
 import express from "express"
-import readAllUsers from "./db"
+import {readAllUsers,readUserById} from "./handlers/users"
+
 
 const router = express.Router();
 
-router.get('/users', async (req, res) => {
-	const data = await readAllUsers();
-	if (data) {
-		return res.json({  data });
-	}
-	return res
-		.status(500)
-		.json({ success: false, message: 'Error fetching DB users' });
-});
+router.get('/users',readAllUsers);
+router.get("/user/:id",readUserById); //read single user based on userid 
+
+
 
 export default router
