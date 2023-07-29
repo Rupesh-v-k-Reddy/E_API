@@ -6,7 +6,7 @@ const router = express.Router();
 
 router.get('/users',readAllUsers);
 router.get("/user/:id",readUserById); //read single user based on userid 
-router.post("/user/:id",updateUserEmail) // update user email id
+router.put("/user/:id",updateUserEmail) // update user email id
 
 
 export default router
